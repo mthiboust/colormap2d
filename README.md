@@ -6,6 +6,7 @@
     <img src="https://raw.githubusercontent.com/mthiboust/colormap2d/main/docs/pinwheel_colormap.png" width="350">
     <img src="https://raw.githubusercontent.com/mthiboust/colormap2d/main/docs/cyclic_pinwheel_colormap.png" width="350">
 </p>
+
 ## Installation
 
 ```shell
