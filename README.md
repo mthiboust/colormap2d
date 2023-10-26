@@ -2,7 +2,8 @@
 
 `matplotlib` provides [many colormaps](https://matplotlib.org/stable/users/explain/colors/colormaps.html) that map scalars to colors. However, it does not provide such colormaps for 2D vectors. Representing 2D vectors as colors may be helpful when dealing with complex numbers or 2D coordinates. This library provides 2 colormaps for this purpose.
 
-![Pinwheel colormap](https://raw.githubusercontent.com/mthiboust/colormap2d/main/docs/pinwheel_colormap.png) ![Cyclic pinwheel colormap](https://raw.githubusercontent.com/mthiboust/colormap2d/main/docs/cyclic_pinwheel_colormap.png)
+<img src="https://raw.githubusercontent.com/mthiboust/colormap2d/main/docs/pinwheel_colormap.png" width="400">
+<img src="https://raw.githubusercontent.com/mthiboust/colormap2d/main/docs/cyclic_pinwheel_colormap.png" width="400">
 
 ## Installation
 
@@ -36,6 +37,6 @@ colormap2d.pinwheel(some_2d_vectors)
 
 ## Behind the scene
 
-The colormap data has been creating using Self-Organizing Maps. 
+The colormap data has been created using Self-Organizing Maps. 
 
 
