@@ -7,6 +7,7 @@ complex numbers or 2D coordinates. This library provides 2 colormaps
 for this purpose.
 """
 
-from .cm import pinwheel, cyclic_pinwheel
+from .cm import cyclic_pinwheel, pinwheel
+
 
 __all__ = ["pinwheel", "cyclic_pinwheel"]

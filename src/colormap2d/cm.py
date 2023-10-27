@@ -11,6 +11,7 @@ from importlib import resources
 
 import numpy as np
 
+
 N = 50  # number of samples inside the colormap data
 
 
@@ -25,7 +26,7 @@ def _apply_colormap(arr, colormap):
     if arr.shape[-1] != 2:
         raise ValueError(f"Last dimension of array shape {arr.shape} must be 2.")
     if np.min(arr) < 0 or np.max(arr) > 1:
-        raise ValueError(f"Array values must be in the range [0:1].")
+        raise ValueError("Array values must be in the range [0:1].")
 
     arr = np.round(arr * N).astype(np.int32)
     colormap_data = _load_npy(colormap + ".npy")
