@@ -1,4 +1,4 @@
-"""Tests for the main colormap2d functions..."""
+"""Tests for the main colormap2d functions."""
 
 import colormap2d
 import numpy as np
