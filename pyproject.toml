@@ -1,23 +1,43 @@
 [project]
 name = "colormap2d"
-version = "0.1.0"
+version = "0.1.1"
 description = "Colormap for 2D vectors"
 authors = [
     {name = "Matthieu Thiboust", email = "14574229+mthiboust@users.noreply.github.com"},
 ]
 dependencies = [
-    "numpy>=1.25.2",
+    "numpy>=1.22",
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 readme = "README.md"
 license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://github.com/mthiboust/colormap2d"
 
 [project.optional-dependencies]
 dev = [
     "ruff>=0.1.2",
     "ipykernel>=6.26.0",
     "matplotlib>=3.8.0",
+    "pytest>=7.4.3",
 ]
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
+
+[tool.ruff]
+line-length = 88
+extend-include = ["*.ipynb"]
+select = ["D", "E", "F", "I001"]
+ignore = ["D206"]
+ignore-init-module-imports = true
+fixable = ["I001", "F401"]
+
+[tool.ruff.isort]
+combine-as-imports = true
+lines-after-imports = 2
+order-by-type = false
+
+[tool.ruff.pydocstyle]
+convention = "google"
