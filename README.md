@@ -19,8 +19,9 @@ pip install colormap2d
 import numpy as np
 import colormap2d
 
-some_2d_vectors = np.random.rand(5, 2)
+some_2d_vectors = np.random.rand(5, 2) 
 
+# Random 2D vectors between 0 and 1:
 # array([[0.91270668, 0.60020465],
 #        [0.51569033, 0.79642031],
 #        [0.36533928, 0.31441287],
@@ -29,6 +30,7 @@ some_2d_vectors = np.random.rand(5, 2)
 
 colormap2d.pinwheel(some_2d_vectors)
 
+# RGB integers between 0 and 255:
 # array([[166, 179,  50],
 #        [ 50,  66,  94],
 #        [ 63,  98, 212],
