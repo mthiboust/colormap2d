@@ -8,9 +8,12 @@ on:
         required: true
         type: choice
         options: 
-          - patch
+          - micro
           - minor
           - major
+
+permissions:
+  contents: write
   
 jobs:
   bump-version:
