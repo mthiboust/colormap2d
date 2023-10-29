@@ -11,6 +11,9 @@ on:
           - micro
           - minor
           - major
+
+permissions:
+  contents: write
   
 jobs:
   bump-version:
