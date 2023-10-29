@@ -1,6 +1,6 @@
 [project]
 name = "colormap2d"
-version = "0.1.1"
+version = "0.1.2"
 description = "Colormap for 2D vectors"
 authors = [
     {name = "Matthieu Thiboust", email = "14574229+mthiboust@users.noreply.github.com"},
