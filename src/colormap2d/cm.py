@@ -55,7 +55,10 @@ def pinwheel(arr, **kwargs):
     """Converts 2D coordinates into 3D RGB values.
 
     Args:
-        arr: Numpy array whose last dimension is 2 and whose values belong to [0,1]
+        arr: Numpy array whose last dimension is 2 and whose values belong to [0,1].
+        **kwargs:
+            mode: 'RGB' or 'RGBA'. Default to 'RGBA'.
+            dtype: np.uint8 or np.float64. Default to np.float64.
     """
     return _apply_colormap(arr, "pinwheel", **kwargs)
 
@@ -64,6 +67,9 @@ def cyclic_pinwheel(arr, **kwargs):
     """Converts 2D coordinates into 3D RGB values which are the same at each XY border.
 
     Args:
-        arr: Numpy array whose last dimension is 2 and whose values belong to [0,1]
+        arr: Numpy array whose last dimension is 2 and whose values belong to [0,1].
+        **kwargs:
+            mode: 'RGB' or 'RGBA'. Default to 'RGBA'.
+            dtype: np.uint8 or np.float64. Default to np.float64.
     """
     return _apply_colormap(arr, "cyclic_pinwheel", **kwargs)
