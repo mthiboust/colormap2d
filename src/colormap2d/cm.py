@@ -20,32 +20,50 @@ def _load_npy(relative_path):
         return np.load(path)
 
 
-def _apply_colormap(arr, colormap):
+def _apply_colormap(arr, colormap, mode="RGBA", dtype=np.float64):
     if not isinstance(arr, np.ndarray):
         raise TypeError(f"Parameter must be a numpy array, not {type(arr)}")
     if arr.shape[-1] != 2:
         raise ValueError(f"Last dimension of array shape {arr.shape} must be 2.")
     if np.min(arr) < 0 or np.max(arr) > 1:
         raise ValueError("Array values must be in the range [0:1].")
+    if mode not in ["RGB", "RGBA"]:
+        raise ValueError(f"Mode must be either 'RGB' or 'RGBA', not '{mode}'.")
+    if dtype not in [np.float64, np.uint8]:
+        raise ValueError(
+            f"Dtype must be either 'np.float64' for float values between 0 and 1, "
+            f"or 'np.uint8' for integer between 0 and 255, not '{dtype}'."
+        )
 
     arr = np.round(arr * N).astype(np.int32)
     colormap_data = _load_npy(colormap + ".npy")
-    return colormap_data[arr[..., 0], arr[..., 1]]
+    out = colormap_data[arr[..., 0], arr[..., 1]]
+
+    # Add an alpha channel filled with ones
+    if mode == "RGBA":
+        alpha = np.ones(arr.shape[:-1] + (1,), dtype=np.uint8) * 255
+        out = np.concatenate((out, alpha), axis=-1)
+
+    # Convert back the values in the [0:1] range like `matplotlib.cm`` functions
+    if dtype == np.float64:
+        out = out / 255
+
+    return out
 
 
-def pinwheel(arr):
+def pinwheel(arr, **kwargs):
     """Converts 2D coordinates into 3D RGB values.
 
     Args:
         arr: Numpy array whose last dimension is 2 and whose values belong to [0,1]
     """
-    return _apply_colormap(arr, "pinwheel")
+    return _apply_colormap(arr, "pinwheel", **kwargs)
 
 
-def cyclic_pinwheel(arr):
+def cyclic_pinwheel(arr, **kwargs):
     """Converts 2D coordinates into 3D RGB values which are the same at each XY border.
 
     Args:
         arr: Numpy array whose last dimension is 2 and whose values belong to [0,1]
     """
-    return _apply_colormap(arr, "cyclic_pinwheel")
+    return _apply_colormap(arr, "cyclic_pinwheel", **kwargs)
