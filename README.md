@@ -30,6 +30,14 @@ some_2d_vectors = np.random.rand(5, 2)
 
 colormap2d.pinwheel(some_2d_vectors)
 
+# RGBA float values between 0 and 1 (default)
+# array([[0.69019608, 0.6627451 , 0.24705882, 1.        ],
+#        [0.25490196, 0.74509804, 0.82352941, 1.        ],
+#        [0.41960784, 0.2       , 0.79215686, 1.        ],
+#        [0.18823529, 0.29803922, 0.20392157, 1.        ],
+#        [0.24705882, 0.24705882, 0.66666667, 1.        ]])
+
+colormap2d.pinwheel(some_2d_vectors, mode="RGB", dtype=np.uint8)
 # RGB integers between 0 and 255:
 # array([[166, 179,  50],
 #        [ 50,  66,  94],
